@@ -76,7 +76,7 @@ export class Aukcija{
                 divpredmeta.hidden=false;
                 formazalicitaciju.hidden=true;
             }
-            let observer=(x)=>{AukcijaService.put_request(x.id,x.naziv,x.opis,unos.value);console.log(x.id,x.naziv,x.opis,unos.value);}
+            let observer=(x)=>{AukcijaService.azuriranjeCene(x.id,x.naziv,x.opis,unos.value);console.log(x.id,x.naziv,x.opis,unos.value);}
             fromEvent(dugmelic,'click').pipe(
                             map(ev=>ev.target.value),
                             switchMap(ev=>fromPromise(
@@ -97,11 +97,11 @@ export class Aukcija{
             const k=new Korisnik(inpIme,inpPrezime,inpBrojLicneKarte,inpKorisnickoIme,inpLozinka);
             console.log(k);
             this.dodajKorisnika(k);
-            AukcijaService.post_request(k);
+            AukcijaService.dodavanjeKorisnikaUBazu(k);
         }
-        /*document.getElementById("prijavljivanje").onclick=(ev)=>{
-            AukcijaService.vratiKorisnika().then(value=>{
-            this.dodajKorisnika(value);
+        document.getElementById("prijavljivanje").onclick=(ev)=>{
+            AukcijaService.dobavljanjeKorisnikaIzBaze().then(value=>{
+            this.dodajKorisnika(value.data);
             this.listaKorisnika.forEach(k=>{
             const loginModal=document.getElementById("loginModal");
             const inpKorisnickoIme=loginModal.querySelector("input[name='korisnickoime']").value;
@@ -111,7 +111,8 @@ export class Aukcija{
                 k.prijavljen=true;console.log(k);
             }
             })
-        });*/
+        });
     }
         
     }
+}
