@@ -1,0 +1,7 @@
+export class Artikal{
+    constructor(naziv,opis){
+        this.naziv=naziv;
+        this.opis=opis;
+        this.cena=0;
+    }
+}

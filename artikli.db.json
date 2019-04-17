@@ -1,0 +1,72 @@
+{
+  "artikli": [
+    {
+      "naziv": "Prestigio",
+      "opis": "ffcds",
+      "cena": "500",
+      "id": 1
+    },
+    {
+      "naziv": "Lenovo IdeaPad",
+      "opis": "Laptop Lenovo IdeaPad 330-14 Sivi 14.0FHD AG, Intel DC i3-7020U/4GB/1TB/Intel UHD 630",
+      "cena": "5000",
+      "id": 2
+    },
+    {
+      "naziv": "Prestigio",
+      "opis": "Laptop Prestigio 141S Win10Pro Sivi 14.1,Intel DC N3350/4GB/32GB/Intel HD/Minecraft",
+      "cena": "2000",
+      "id": 3
+    },
+    {
+      "naziv": "Acer Aspire 3",
+      "opis": "Laptop Acer A315-32-P1SG 15.6inca, Intel QC N5000/4GB/256GB SSD/Intel UHD 605",
+      "cena": "100",
+      "id": 4
+    },
+    {
+      "naziv": "Acer Aspire 3",
+      "opis": "Laptop Acer A315-32-P1SG 15.6inca, Intel QC N5000/4GB/256GB SSD/Intel UHD 605",
+      "cena": "20",
+      "id": 5
+    },
+    {
+      "id": 4,
+      "naziv": "Acer Aspire 3",
+      "opis": "Laptop Acer A315-32-P1SG 15.6inca, Intel QC N5000/4GB/256GB SSD/Intel UHD 605",
+      "cena": 0
+    },
+    {
+      "id": 5,
+      "naziv": "Acer Aspire 3",
+      "opis": "Laptop Acer A315-32-P1SG 15.6inca, Intel QC N5000/4GB/256GB SSD/Intel UHD 605",
+      "cena": 0
+    },
+    {
+      "id": 5,
+      "naziv": "Acer Aspire 3",
+      "opis": "Laptop Acer A315-32-P1SG 15.6inca, Intel QC N5000/4GB/256GB SSD/Intel UHD 605",
+      "cena": 0
+    }
+  ],
+  "korisnici": [
+    {
+      "ime": "Jovan",
+      "prezime": "Kostic",
+      "brojLicneKarte": "ckmacsdkjm",
+      "korisnickoIme": "jova",
+      "lozinka": "jova",
+      "prijavljen": false,
+      "id": 1
+    },
+    {
+      "ime": "Milan",
+      "prezime": "MIlanovic",
+      "brojLicneKarte": "8532462985240",
+      "korisnickoIme": "milan",
+      "lozinka": "aukcija",
+      "prijavljen": false,
+      "id": 2
+    }
+  ]
+}

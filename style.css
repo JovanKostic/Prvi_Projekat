@@ -1,0 +1,135 @@
+/***********Skrol bar stil**************/
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 5px;
+}
+ 
+::-webkit-scrollbar-thumb {
+  background:grey; 
+  border-radius: 5px;
+}
+/********Kraj skrol bara********/
+body{
+  overflow-x: hidden;
+  color:#505962;
+}
+.slika{
+  width:120px;
+  height: 120px;
+}
+.naziv{
+  width:150px;
+  
+}
+.slikapredmeta{
+  width:200px;
+  height: 200px;
+}
+.divzacrtanje{
+  display: flex;
+  flex-direction: row;
+}
+.divzaartikal{
+  display: flex;
+  flex-direction: column;
+  margin-left: 1%;
+  margin-right: 1%;
+  margin-top: 8%;
+  margin-bottom: 2%;
+  width:140px;
+
+}
+.deozasliku{
+  background-image: url(slike/Online-Auctions2[63].jpg);
+}
+.natpisnapocetnoj{
+  width:100%;
+  max-width: 100%;
+  position:absolute;
+  top: 40%;
+  z-index: 1;
+  color:white;
+  text-transform: uppercase;
+}
+.natpisnapocetnoj h1{
+  font-size:72px;
+  font-weight: 700;
+  letter-spacing: 16px;
+  padding-bottom: 16px;
+  font-family:"Times New Roman",Times,serif;
+}
+.natpisnapocetnoj h3{
+  font-family:Arial, Helvetica, sans-serif;
+  padding-bottom: 25px;
+}
+.btn-lg{
+  border-width: medium;
+  border-radius: 0;
+  padding: 96px 22px;
+  font-size:18px;
+}
+.prikaz{
+  padding-top: 20px;
+  width: 100%;
+  height: 200px;
+}
+.deozanatpis {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: table;
+  z-index: -1;
+}
+.pozicioniranje {
+  clip: rect(0, auto, auto, 0);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.deozasliku {
+  
+  display: table;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center center;
+  -webkit-transform: translateZ(0);
+          transform: translateZ(0);
+  will-change: transform;
+}
+
+/*--- iOS Fixed Background Image --*/
+.fixed-background {
+  position: relative;
+  width: 100%;
+}
+.fixed-wrap {
+  clip: rect(0, auto, auto, 0);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -999!important;
+}
+.fixed {
+  position: fixed;
+  display: block;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center center;
+  -webkit-transform: translateZ(0);
+          transform: translateZ(0);
+  will-change: transform;
+}

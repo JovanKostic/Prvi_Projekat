@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="bootstrap-4.3.1-dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="bootstrap-4.3.1-dist/css/bootstrap.css">
+    </head>
+    <body data-spy="scroll" class="#bodi">
+        <!--Pocetak pocetne strane-->
+        <div id="sekcija_pocetna_strana">
+            <!--Pocetak navigacije-->
+                <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+                    <a class="navbar-brand" href="#sekcija_pocetna_strana">Logo</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bodi">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="bodi">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item"><a class="nav-link" href="#sekcija_pocetna_strana">Pocetna</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#sekcija_predmet">Predmet</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#sekcija_kontakt">Kontakt</a></li>
+                            <li id="prijava"class="nav-item"><a class="nav-link" href="" class="btn btn-default" data-toggle="modal" data-target="#loginModal">Prijava</a></li>
+                            <li class="nav-item"><a class="nav-link" href="" class="btn btn-default" data-toggle="modal" data-target="#regModal">Registracija</a></li>
+                        </ul>   
+                    </div>
+                </nav>
+            <!--Kraj navigacije-->
+            <!--Pocetak forme za prijavljivanje-->
+                <div class="modal fade" id="loginModal" role="dialog">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header text-center">
+                                <h4>Prijavljivanje</h4>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="md-form">
+                                    <input type="email" name="korisnickoime" class="form-control validate" placeholder="Korisnicko ime">
+                                </div>
+                                <br>
+                                <div class="md-form">
+                                <input type="password" name="lozinka" class="form-control validate" placeholder="Lozinka">
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button id="prijavljivanje" data-dismiss="modal" class="btn btn-default btn-success">Prijava</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Kraj forme za prijavljivanje-->
+                <!--Pocetak forme za registraciju-->
+                <div class="modal fade" id="regModal" role="dialog">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header text-center">
+                                <h4>Registrujte se</h4>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="md-form">
+                                    <input type="email" name="ime" class="form-control validate" placeholder="Ime">
+                                </div>
+                                <br>
+                                <div class="md-form">
+                                    <input type="email" name="prezime" class="form-control validate" placeholder="Prezime">
+                                </div>
+                                <br>
+                                <div class="md-form">
+                                    <input type="email" name="brojlicnekarte" class="form-control validate" placeholder="Broj licne karte">
+                                </div>
+                                <br>
+                                <div class="md-form">
+                                    <input type="email" name="korisnickoimeregistracija" class="form-control validate" placeholder="Korisicko ime">
+                                </div>
+                                <br>
+                                <div class="md-form">
+                                <input type="password" name="lozinkaregistracija" class="form-control validate" placeholder="Lozinka">
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button id="registracija" data-dismiss="modal" class="btn btn-default btn-success">Registracija</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Kraj forme za registraciju-->
+                <!--Pocetak izgleda pocetne strane-->
+                    <div class="deozanatpis">
+                        <div class="pozicioniranje">
+                            <div class="deozasliku">
+        
+                            </div>
+                        </div>
+                    </div>
+                    <div class="natpisnapocetnoj text-center">
+                        <h1>Internet aukcije</h1>
+                        <h3>Dobrodošli</h3>
+                        <a class="btn btn-outline-light btn-lg" href="#sekcija_predmet">Pogledaj predmete</a>
+                    </div>
+                <!--Kraj izgleda pocetne strane-->
+        </div>
+        <!--Kraj pocetne strane-->
+        <!--Pocetak predmet dela-->
+        <div id="sekcija_predmet">
+            <div id="predmeti" style="overflow-y:hidden;overflow-x:scroll;margin-left: 10%;margin-right: 10%;"></div>
+        </div>
+        <!--Kraj predmet dela-->
+        <!--Pocetak aukcija dela-->
+        <div id="sekcija_aukcija">
+            <div class="container">
+                <div class="row">
+                    <div id="predmet"></div>
+                </div>
+            </div>
+        </div>
+        <!--Kraj aukcija dela-->
+        <!--Pocetak kontakt dela-->
+        <div id="sekcija_kontakt">
+            <div class="container position-relative">
+                <h4 class="text-center">Kontakt forma</h4>
+                <h2 class="text-center">Stupite u kontakt sa nama</h2>
+                <p>Vaše ime:</p>
+                <input type="text" name="ime_korisnika" value="" size="40"></p>
+                <p>Vaša e-pošta:</p>
+                <input type="email" name="posta_korisnika" value="" size="40"></p>
+                <p>Naziv predmeta:</p>
+                <input type="text" name="naziv_predmeta" value="" size="40"></p>
+                <p>Opis predmeta:</p>
+                <textarea name="opis_predmeta" cols="40" rows="10"></textarea></p>
+                <span class="control-fileupload">
+                    <input type="hidden" name="MAX_FILE_SIZE" value="102400">
+                    Pošaljite fajl: <input type="file"><br><br>
+                </span>
+                <button id="postavi_predmet"class="btn btn-default  btn-primary" type="submit">Postavi predmet</button>
+            </div>
+        </div>
+        <!--Kraj kontakt dela-->
+        <script src="js/jquery-3.3.1.min.js"></script>
+        <script src="bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
+        <script src="bootstrap-4.3.1-dist/js/bootstrap.js"></script>
+        <script src="bundle.js"></script>
+    </body>
+</html>
