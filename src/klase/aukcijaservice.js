@@ -1,18 +1,21 @@
 export class AukcijaService{
-    constructor(){}
-    static get(){
+    /*static get(){
         return fetch("http://localhost:3000/artikli")
         .then(response=>response.json());
     }
     static getKorisnik(){
         return fetch("http://localhost:3000/korisnici")
         .then(response=>response.json());
-    }
-    static get_request(){
+    }*/
+    static dobavljanjeArtikalaIzBaze(){
         const axios = require('axios');
-        return axios.get('http://localhost:3000/artikli').then(response=>response.json());
+        return axios.get('http://localhost:3000/artikli');
     }
-    static put_request(id,naziv,opis,cena){
+    static dobavljanjeKorisnikaIzBaze(){
+        const axios = require('axios');
+        return axios.get('http://localhost:3000/korisnici');
+    }
+    static azuriranjeCene(id,naziv,opis,cena){
         const axios = require('axios');
         axios.put('http://localhost:3000/artikli/'+id, {
             naziv:naziv,
@@ -24,7 +27,7 @@ export class AukcijaService{
             console.log(error);
         });  
     }
-    static post_request(korisnik){
+    static dodavanjeKorisnikaUBazu(korisnik){
         const axios = require('axios');
         axios.post('http://localhost:3000/korisnici', {
             ime:korisnik.ime,
@@ -38,9 +41,5 @@ export class AukcijaService{
         }).catch(error => {
     console.log(error);
         });
-    }
-    static vratiKorisnika(){
-        return fetch("http://localhost:3000/korisnici")
-        .then(response=>response.json());
     }
 }
