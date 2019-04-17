@@ -15,4 +15,4 @@ document.getElementById("postavi_predmet").onclick=(ev)=>{
 }
 const ob=fromEvent(document.getElementById("registracija"),'click');
 ob.subscribe(ev=>console.log("reg"));    
-  
+//test
