@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="bootstrap-4.3.1-dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="bootstrap-4.3.1-dist/css/bootstrap.css">
     </head>
-    <body data-spy="scroll" class="#bodi">
+    <body class="#bodi">
         <!--Pocetak pocetne strane-->
         <div id="sekcija_pocetna_strana">
             <!--Pocetak navigacije-->
@@ -21,8 +21,9 @@
                             <li class="nav-item"><a class="nav-link" href="#sekcija_pocetna_strana">Pocetna</a></li>
                             <li class="nav-item"><a class="nav-link" href="#sekcija_predmet">Predmet</a></li>
                             <li class="nav-item"><a class="nav-link" href="#sekcija_kontakt">Kontakt</a></li>
-                            <li id="prijava"class="nav-item"><a class="nav-link" href="" class="btn btn-default" data-toggle="modal" data-target="#loginModal">Prijava</a></li>
+                            <li class="nav-item"><a class="nav-link" href="" class="btn btn-default" data-toggle="modal" data-target="#loginModal">Prijava</a></li>
                             <li class="nav-item"><a class="nav-link" href="" class="btn btn-default" data-toggle="modal" data-target="#regModal">Registracija</a></li>
+                            <li id="odjava" class="nav-item"><a class="btn btn-sm btn-outline-warning" href="index.html">Odjavi se</a></li>
                         </ul>   
                     </div>
                 </nav>
@@ -39,11 +40,11 @@
                             </div>
                             <div class="modal-body">
                                 <div class="md-form">
-                                    <input type="email" name="korisnickoime" class="form-control validate" placeholder="Korisnicko ime">
+                                    <input name="korisnickoime" class="form-control" placeholder="Korisnicko ime">
                                 </div>
                                 <br>
                                 <div class="md-form">
-                                <input type="password" name="lozinka" class="form-control validate" placeholder="Lozinka">
+                                <input type="password" name="lozinka" class="form-control" placeholder="Lozinka">
                                 </div>
                             </div>
                             <div class="modal-footer">
@@ -124,22 +125,48 @@
         <!--Kraj aukcija dela-->
         <!--Pocetak kontakt dela-->
         <div id="sekcija_kontakt">
-            <div class="container position-relative">
-                <h2 class="text-center">Stupite u kontakt sa nama</h2>
-                <p>Vaše ime:</p>
-                <input type="text" name="ime_korisnika" value="" size="40"></p>
-                <p>Vaša e-pošta:</p>
-                <input type="email" name="posta_korisnika" value="" size="40"></p>
-                <p>Naziv predmeta:</p>
-                <input type="text" name="naziv_predmeta" value="" size="40"></p>
-                <p>Opis predmeta:</p>
-                <textarea name="opis_predmeta" cols="40" rows="10"></textarea></p>
-                <span class="control-fileupload">
-                    <input type="hidden" name="MAX_FILE_SIZE" value="102400">
-                    Pošaljite fajl: <input type="file"><br><br>
-                </span>
-                <button id="postavi_predmet"class="btn btn-default  btn-primary" type="submit">Postavi predmet</button>
+        <div class="container contact-form">
+            <div class="row">
+                <div class="col-md-6">
+                    <address>Ulica: Vozda Karadjordja</address>
+                    <p>E-mail: prviprojekat@gmail.com</p>
+                    <p>Telefon:062484456</p>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Ime:</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>Prezime:</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>Broj licne karte:</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>Ziro-racun:</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>Adresa isporuke:</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>Nacin placanja:</label>
+                            <ul>
+                                <input name="nacinPlacanja" type="radio">Ziro racun<br>
+                                <input name="nacinPlacanja" type="radio">Pouzecem<br>
+                                <input name="nacinPlacanja" type="radio">
+                            </ul>
+                    </div>
+                    <div class="form-group">
+                        <button id="posalji" class="btn btn-success">Posalji</button>
+                    </div>
+                </div>
             </div>
+        </div>
         </div>
         <!--Kraj kontakt dela-->
         <script src="js/jquery-3.3.1.min.js"></script>
