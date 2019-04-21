@@ -41,6 +41,7 @@ body{
   margin-top: 8%;
   margin-bottom: 2%;
   width:140px;
+
 }
 .deozasliku{
   background-image: url(slike/Online-Auctions2[63].jpg);
@@ -85,14 +86,14 @@ body{
 }
 .pozicioniranje {
   clip: rect(0, auto, auto, 0);
-  position: relative;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
 }
 .deozasliku {
-  position: relative;
+  
   display: table;
   top: 0;
   left: 0;
@@ -103,4 +104,17 @@ body{
   -webkit-transform: translateZ(0);
           transform: translateZ(0);
   will-change: transform;
+}
+#sekcija_kontakt{
+  position: relative;
+}
+.contact-form{
+  margin-top:5%;
+  margin-bottom: 5%;
+  background: rgba(0,0,0,.6);
+  color:white;
+  padding: 20px;
+}
+hr{
+  background: white;
 }
