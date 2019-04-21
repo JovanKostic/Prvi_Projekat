@@ -27,6 +27,21 @@ export class AukcijaService{
             console.log(error);
         });  
     }
+    static azuriranjeKorisnika(korisnik){
+        const axios = require('axios');
+        axios.put('http://localhost:3000/korisnici/'+korisnik.id, {
+            ime:korisnik.ime,
+            prezime:korisnik.prezime,
+            brojLicneKarte:korisnik.brojLicneKarte,
+            korisnickoIme:korisnik.korisnickoIme,
+            lozinka:korisnik.lozinka,
+            prijavljen:korisnik.prijavljen
+        }).then(resp => {
+            console.log(resp.data);
+        }).catch(error => {
+            console.log(error);
+        });  
+    }
     static dodavanjeKorisnikaUBazu(korisnik){
         const axios = require('axios');
         axios.post('http://localhost:3000/korisnici', {
