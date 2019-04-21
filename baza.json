@@ -3,7 +3,7 @@
     {
       "naziv": "Prestigio",
       "opis": "ffcds",
-      "cena": "1000",
+      "cena": "20000",
       "id": 1
     },
     {
@@ -15,7 +15,7 @@
     {
       "naziv": "Prestigio",
       "opis": "Laptop Prestigio 141S Win10Pro Sivi 14.1,Intel DC N3350/4GB/32GB/Intel HD/Minecraft",
-      "cena": "3000",
+      "cena": "4001",
       "id": 3
     },
     {
@@ -51,40 +51,22 @@
   ],
   "korisnici": [
     {
-      "ime": "Jovan",
-      "prezime": "Kostic",
-      "brojLicneKarte": "ckmacsdkjm",
-      "korisnickoIme": "jova",
-      "lozinka": "jova",
-      "prijavljen": false,
-      "id": 1
-    },
-    {
       "ime": "Milan",
       "prezime": "MIlanovic",
       "brojLicneKarte": "8532462985240",
       "korisnickoIme": "milan",
       "lozinka": "aukcija",
       "prijavljen": false,
-      "id": 2
+      "id": 1
     },
     {
       "ime": "Nikola",
       "prezime": "NIkolic",
-      "brojLicneKarte": "9418358290465",
+      "brojLicneKarte": "38259387",
       "korisnickoIme": "nikola",
-      "lozinka": "nikolic",
+      "lozinka": "nikola",
       "prijavljen": false,
-      "id": 3
-    },
-    {
-      "ime": "Milena",
-      "prezime": "Milenic",
-      "brojLicneKarte": "538295419",
-      "korisnickoIme": "mila",
-      "lozinka": "mila",
-      "prijavljen": false,
-      "id": 4
+      "id": 2
     }
   ]
 }
