@@ -1,72 +1,81 @@
 {
   "artikli": [
     {
-      "naziv": "Prestigio",
-      "opis": "ffcds",
-      "cena": "20000",
+      "naziv": "Acer Nitro",
+      "opis": "Laptop Acer Nitro AN515-42-R37N 15.6' ,AMD QC R5-2500U/8GB/512 SSD/Radeon RX 560X 4G",
+      "cena": "60000000000000000000000000",
       "id": 1
     },
     {
-      "naziv": "Lenovo IdeaPad",
-      "opis": "Laptop Lenovo IdeaPad 330-14 Sivi 14.0FHD AG, Intel DC i3-7020U/4GB/1TB/Intel UHD 630",
-      "cena": "5000",
+      "naziv": "HP Probook",
+      "opis": "Laptop HP Probook 430 G5 Srebrni 13.3' FHD, Intel DC i3-7100U/4GB/500GB/Intel HD 620",
+      "cena": "700000000000",
       "id": 2
     },
     {
-      "naziv": "Prestigio",
-      "opis": "Laptop Prestigio 141S Win10Pro Sivi 14.1,Intel DC N3350/4GB/32GB/Intel HD/Minecraft",
-      "cena": "4001",
+      "naziv": "HP Pavilion",
+      "opis": "Laptop HP Pavilion 14-ce0004nm Ljubičasti 14.0' FHD, Intel DC i3-8130U/4GB/1TB/UHD 620",
+      "cena": "40",
       "id": 3
     },
     {
-      "naziv": "Acer Aspire 3",
-      "opis": "Laptop Acer A315-32-P1SG 15.6inca, Intel QC N5000/4GB/256GB SSD/Intel UHD 605",
-      "cena": "500",
+      "naziv": "HP Envy",
+      "opis": "Laptop HP ENVY x360 13-ag0019 Win10 Sivi 13.3' , AMD R5-2500U/8GB/256GB SSD/Vega 8",
+      "cena": "10",
       "id": 4
     },
     {
-      "naziv": "Acer Aspire 3",
-      "opis": "Laptop Acer A315-32-P1SG 15.6inca, Intel QC N5000/4GB/256GB SSD/Intel UHD 605",
-      "cena": "20",
+      "naziv": "Lenovo Yoga",
+      "opis": "Laptop Lenovo YOGA 530-14 Win10 Plavi 14' Touch,Intel DC i3-7130U/8GB/128 SSD/Intel HD/A",
+      "cena": "90",
       "id": 5
     },
     {
-      "id": 4,
       "naziv": "Acer Aspire 3",
       "opis": "Laptop Acer A315-32-P1SG 15.6inca, Intel QC N5000/4GB/256GB SSD/Intel UHD 605",
-      "cena": 0
+      "cena": "30",
+      "id": 6
     },
     {
-      "id": 5,
-      "naziv": "Acer Aspire 3",
-      "opis": "Laptop Acer A315-32-P1SG 15.6inca, Intel QC N5000/4GB/256GB SSD/Intel UHD 605",
-      "cena": 0
+      "naziv": "HP OMEN",
+      "opis": "Laptop HP Omen 15-dc0019nm Win10 15.6' , Intel QC i5-8300H/8GB/256GB SSD/GTX 1050 4GB",
+      "cena": "60",
+      "id": 7
     },
     {
-      "id": 5,
-      "naziv": "Acer Aspire 3",
-      "opis": "Laptop Acer A315-32-P1SG 15.6inca, Intel QC N5000/4GB/256GB SSD/Intel UHD 605",
-      "cena": 0
+      "naziv": "HP 250 G6",
+      "opis": "Laptop HP 250 G6 (1WY61EA)15.6' AG,Intel i5-7200U/4GB/500GB/Intel HD",
+      "cena": "",
+      "id": 8
     }
   ],
   "korisnici": [
     {
-      "ime": "Milan",
-      "prezime": "MIlanovic",
-      "brojLicneKarte": "8532462985240",
-      "korisnickoIme": "milan",
-      "lozinka": "aukcija",
+      "ime": "Nikola",
+      "prezime": "Nikolic",
+      "brojLicneKarte": "6787890",
+      "korisnickoIme": "nikola",
+      "lozinka": "nikola",
       "prijavljen": false,
       "id": 1
     },
     {
-      "ime": "Nikola",
-      "prezime": "NIkolic",
-      "brojLicneKarte": "38259387",
-      "korisnickoIme": "nikola",
-      "lozinka": "nikola",
+      "ime": "Petar",
+      "prezime": "Petrovic",
+      "brojLicneKarte": "6780098",
+      "korisnickoIme": "petar",
+      "lozinka": "petar",
       "prijavljen": false,
       "id": 2
+    },
+    {
+      "ime": "Marko",
+      "prezime": "Markovic",
+      "brojLicneKarte": "567890",
+      "korisnickoIme": "marko",
+      "lozinka": "marko",
+      "prijavljen": false,
+      "id": 3
     }
   ]
 }
