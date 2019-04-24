@@ -118,3 +118,11 @@ body{
 hr{
   background: white;
 }
+.deozalicitaciju{
+  display: flex;
+}
+.obavestenja{
+  display: flex;
+  flex-direction: row;
+  margin-left: 20%;
+}
