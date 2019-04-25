@@ -7,12 +7,12 @@
         <link rel="stylesheet" href="bootstrap-4.3.1-dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="bootstrap-4.3.1-dist/css/bootstrap.css">
     </head>
-    <body data-spy="scroll" class="#bodi">
+    <body class="#bodi">
         <!--Pocetak pocetne strane-->
         <div id="sekcija_pocetna_strana">
             <!--Pocetak navigacije-->
                 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-                    <a class="navbar-brand" href="#sekcija_pocetna_strana">Logo</a>
+                    <a class="navbar-brand" href="#sekcija_pocetna_strana" style="color:silver;font-family:'Times New Roman',Times,serif;font-size:20px">I.A.</a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bodi">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -21,8 +21,9 @@
                             <li class="nav-item"><a class="nav-link" href="#sekcija_pocetna_strana">Pocetna</a></li>
                             <li class="nav-item"><a class="nav-link" href="#sekcija_predmet">Predmet</a></li>
                             <li class="nav-item"><a class="nav-link" href="#sekcija_kontakt">Kontakt</a></li>
-                            <li id="prijava"class="nav-item"><a class="nav-link" href="" class="btn btn-default" data-toggle="modal" data-target="#loginModal">Prijava</a></li>
+                            <li class="nav-item"><a class="nav-link" href="" class="btn btn-default" data-toggle="modal" data-target="#loginModal">Prijava</a></li>
                             <li class="nav-item"><a class="nav-link" href="" class="btn btn-default" data-toggle="modal" data-target="#regModal">Registracija</a></li>
+                            <li id="odjava" class="nav-item"><a class="btn btn-sm btn-warning">Odjavi se</a></li>
                         </ul>   
                     </div>
                 </nav>
@@ -39,11 +40,11 @@
                             </div>
                             <div class="modal-body">
                                 <div class="md-form">
-                                    <input type="email" name="korisnickoime" class="form-control validate" placeholder="Korisnicko ime">
+                                    <input name="korisnickoime" class="form-control" placeholder="Korisnicko ime">
                                 </div>
                                 <br>
                                 <div class="md-form">
-                                <input type="password" name="lozinka" class="form-control validate" placeholder="Lozinka">
+                                <input type="password" name="lozinka" class="form-control" placeholder="Lozinka">
                                 </div>
                             </div>
                             <div class="modal-footer">
@@ -109,7 +110,7 @@
         </div>
         <!--Kraj pocetne strane-->
         <!--Pocetak predmet dela-->
-        <div id="sekcija_predmet">
+        <div id="sekcija_predmet" class="s_p">
             <div id="predmeti" style="overflow-y:hidden;overflow-x:scroll;margin-left: 10%;margin-right: 10%;"></div>
         </div>
         <!--Kraj predmet dela-->
@@ -124,23 +125,45 @@
         <!--Kraj aukcija dela-->
         <!--Pocetak kontakt dela-->
         <div id="sekcija_kontakt">
-            <div class="container position-relative">
-                <h4 class="text-center">Kontakt forma</h4>
-                <h2 class="text-center">Stupite u kontakt sa nama</h2>
-                <p>Vaše ime:</p>
-                <input type="text" name="ime_korisnika" value="" size="40"></p>
-                <p>Vaša e-pošta:</p>
-                <input type="email" name="posta_korisnika" value="" size="40"></p>
-                <p>Naziv predmeta:</p>
-                <input type="text" name="naziv_predmeta" value="" size="40"></p>
-                <p>Opis predmeta:</p>
-                <textarea name="opis_predmeta" cols="40" rows="10"></textarea></p>
-                <span class="control-fileupload">
-                    <input type="hidden" name="MAX_FILE_SIZE" value="102400">
-                    Pošaljite fajl: <input type="file"><br><br>
-                </span>
-                <button id="postavi_predmet"class="btn btn-default  btn-primary" type="submit">Postavi predmet</button>
+        <div class="container contact-form">
+            <div class="row">
+                <div class="col-md-6">
+                    <address>Ulica: Vozda Karadjordja</address>
+                    <p>E-mail: prviprojekat@gmail.com</p>
+                    <p>Telefon:062484456</p>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Ime:</label>
+                        <input type="text" id="ime" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>Prezime:</label>
+                        <input type="text" id="prezime" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>Broj licne karte:</label>
+                        <input type="text" id="brojlicnekarte" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>Ziro-racun:</label>
+                        <input type="text" id="ziroracun" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>Adresa isporuke:</label>
+                        <input type="text" id="adresaisporuke" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="sel1">Predmet:</label>
+                        <select class="form-control" id="selekt">
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <button id="posalji" class="btn btn-default btn-warning">Posalji</button>
+                    </div>
+                </div>
             </div>
+        </div>
         </div>
         <!--Kraj kontakt dela-->
         <script src="js/jquery-3.3.1.min.js"></script>

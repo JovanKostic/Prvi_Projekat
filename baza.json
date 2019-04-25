@@ -1,0 +1,83 @@
+{
+  "artikli": [
+    {
+      "naziv": "HP Envy",
+      "opis": "Laptop HP ENVY x360 13-ag0019 Win10 Sivi 13.3' , AMD R5-2500U/8GB/256GB SSD/Vega 8",
+      "cena": "",
+      "kupac": "",
+      "id": 1
+    },
+    {
+      "naziv": "Lenovo Yoga",
+      "opis": "Laptop Lenovo YOGA 530-14 Win10 Plavi 14' Touch,Intel DC i3-7130U/8GB/128 SSD/Intel HD/A",
+      "cena": "",
+      "kupac": "",
+      "id": 2
+    },
+    {
+      "naziv": "HP OMEN",
+      "opis": "Laptop HP Omen 15-dc0019nm Win10 15.6' , Intel QC i5-8300H/8GB/256GB SSD/GTX 1050 4GB",
+      "cena": "",
+      "kupac": "",
+      "id": 3
+    },
+    {
+      "naziv": "HP 250 G6",
+      "opis": "Laptop HP 250 G6 (1WY61EA)15.6' AG,Intel i5-7200U/4GB/500GB/Intel HD",
+      "cena": "",
+      "kupac": "",
+      "id": 4
+    },
+    {
+      "naziv": "Asus Strix",
+      "opis": "Laptop Asus ROG STRIX GL503GE-EN062 15.6' FHD,Intel HC i7-8750H/12GB/1TB/GTX 1050 Ti 4GB",
+      "cena": "",
+      "kupac": "",
+      "id": 5
+    },
+    {
+      "naziv": "Acer Predator",
+      "opis": "Laptop Acer Predator G3-572-50FE 15.6' ,Intel QC i5-7300HQ/8GB/1TB/256 SSD/GTX 1060 6G",
+      "cena": "",
+      "kupac": "",
+      "id": 6
+    },
+    {
+      "naziv": "Acer Swift",
+      "opis": "Laptop Acer Swift 3 SF315-41-R26 Sivi 15.6' ,AMD QC R5-2500U/8GB/512SSD/Radeon Vega 8",
+      "cena": "",
+      "kupac": "",
+      "id": 7
+    },
+    {
+      "naziv": "Dell",
+      "opis": "Laptop Dell 3567 15.6' , Intel DC i3-7020U/8GB/240GB SSD/Radeon 520 2GB",
+      "cena": "",
+      "kupac": "",
+      "id": 8
+    }
+  ],
+  "korisnici": [
+    {
+      "ime": "Nikola",
+      "prezime": "Nikolic",
+      "brojLicneKarte": "6787890",
+      "korisnickoIme": "nikola",
+      "lozinka": "nikola",
+      "prijavljen": true,
+      "predmet": 1,
+      "id": 1
+    },
+    {
+      "ime": "Marko",
+      "prezime": "Markovic",
+      "brojLicneKarte": "432567",
+      "korisnickoIme": "marko",
+      "lozinka": "marko",
+      "prijavljen": false,
+      "predmet": 2,
+      "id": 2
+    }
+  ],
+  "poslatiPredmeti": []
+}

@@ -1,3 +1,4 @@
+import {Artikal} from './artikal.js';
 export class Korisnik{
     constructor(ime,prezime,brojLicneKarte,korisnickoIme,Lozinka){
         this.ime=ime;
@@ -6,5 +7,6 @@ export class Korisnik{
         this.korisnickoIme=korisnickoIme;
         this.lozinka=Lozinka;
         this.prijavljen=false;
+        this.predmet=null;
     }
 }

@@ -105,31 +105,20 @@ body{
           transform: translateZ(0);
   will-change: transform;
 }
-
-/*--- iOS Fixed Background Image --*/
-.fixed-background {
+#sekcija_kontakt{
   position: relative;
-  width: 100%;
 }
-.fixed-wrap {
-  clip: rect(0, auto, auto, 0);
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -999!important;
+.contact-form{
+  margin-top:5%;
+  margin-bottom: 5%;
+  background: rgba(0,0,0,.6);
+  color:white;
+  padding: 20px;
 }
-.fixed {
-  position: fixed;
-  display: block;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position: center center;
-  -webkit-transform: translateZ(0);
-          transform: translateZ(0);
-  will-change: transform;
+hr{
+  background: white;
+}
+.obavestenja{
+  display: flex;
+  flex-direction: column;
 }

@@ -1,18 +1,16 @@
 import {Artikal} from './artikal.js';
 import {Korisnik} from './korisnik';
 import {AukcijaService} from './aukcijaservice.js';
-import { range, interval, Observable, from, of, Subject, fromEvent} from "rxjs";
-import { filter, map, take, takeUntil, scan, debounceTime, switchMap, concatAll} from "rxjs/operators";
+import { forkJoin,publish, range, interval, Observable, from, of, Subject, fromEvent, timer} from "rxjs";
+import { filter, map, take, takeUntil, scan, debounceTime, switchMap, concatAll, create, concatMap, zip} from "rxjs/operators";
 import * as Rxjs from "rxjs";
 import {from as fromPromise} from "rxjs";
 export class Aukcija{
     constructor(){
-        this.listaKorisnika=[];
         this.listaArtikala=null;
         this.container=null;
     }
-    dodajKorisnika(k){this.listaKorisnika=k;}
-    dodajArtikal(a){this.listaArtikala=a;console.log(a);}
+    dodajArtikal(a){this.listaArtikala=a;}
     crtajArtikle(host){
         const divzacrtanje=document.createElement("div");
         divzacrtanje.className="divzacrtanje";
@@ -35,20 +33,29 @@ export class Aukcija{
         dugme.innerHTML="Licitiraj";
         dugme.className=a.id;
         dugme.value=a.id;
+        dugme.classList="btn btn-default btn-secondary btn-sm";
         divzaartikal.appendChild(dugme);
-        dugme.onclick = (ev)=>{
+        const selekt=document.getElementById("selekt");
+        const opcija=document.createElement("option");
+        opcija.innerHTML=a.naziv;
+        opcija.value=a.id;
+        selekt.appendChild(opcija);
+        const ob=(ev)=>{
             const divpredmeta=document.getElementById("predmeti");
+            divpredmeta.className="divpredmeta";
             divpredmeta.hidden=true;
             const sekcijaaukcija=document.getElementById("predmet");
             const formazalicitaciju=document.createElement("div");
+            formazalicitaciju.id="formazalicitaciju";
+            const obavestenja=document.createElement("div");
+            obavestenja.className="obavestenja";
             sekcijaaukcija.appendChild(formazalicitaciju);
-            formazalicitaciju.className="formazalicitaciju";
             const deozaslikuiopis=document.createElement("div");
-            const id=ev.target;
-            console.log(id.value);
+            console.log(ev.target.value);
             deozaslikuiopis.className="deozaslikuiopis";
             formazalicitaciju.appendChild(deozaslikuiopis);
-            const predmet=this.listaArtikala[id.value-1];
+            const id=ev.target.value;
+            const predmet=this.listaArtikala[id-1];
             console.log(predmet);
             const opis=document.createElement("h5");
             opis.innerHTML=predmet.opis;
@@ -60,58 +67,57 @@ export class Aukcija{
             const deozalicitaciju=document.createElement("div");
             deozalicitaciju.className="deozalicitaciju";
             formazalicitaciju.appendChild(deozalicitaciju);
+            const unos=document.createElement("input");
+            unos.type="number";
+            deozalicitaciju.appendChild(unos);
             const dugmelic=document.createElement("button");
+            dugmelic.classList="btn-default btn-warning";
             dugmelic.className="dugmelicitiraj";
             dugmelic.value=predmet.id;
             dugmelic.innerHTML="Licitiraj";
             deozalicitaciju.appendChild(dugmelic);
-            const unos=document.createElement("input");
-            unos.type="number";
-            unos.placeholder=predmet.cena;
-            deozalicitaciju.appendChild(unos);
-            const dugmeodustani=document.createElement("button");
-            dugmeodustani.innerHTML="Odustani od licitacije";
-            deozalicitaciju.appendChild(dugmeodustani);
-            dugmeodustani.onclick=(ev)=>{
-                divpredmeta.hidden=false;
-                formazalicitaciju.hidden=true;
-            }
-            let observer=(x)=>{AukcijaService.put_request(x.id,x.naziv,x.opis,unos.value);console.log(x.id,x.naziv,x.opis,unos.value);}
-            fromEvent(dugmelic,'click').pipe(
-                            map(ev=>ev.target.value),
-                            switchMap(ev=>fromPromise(
-                                 fetch("http://localhost:3000/artikli/"+ev)
-                                    .then(response=>response.json())
-                                )),
-                            filter(f=>f.cena<parseInt(unos.value))
-            ).subscribe(observer);
+            const nazad=document.createElement("button");
+            nazad.className="Nazad";
+            nazad.innerHTML="Nazad na predmete";
+            deozalicitaciju.appendChild(nazad);
+            const trenutniKupac=document.createElement("label");
+            trenutniKupac.innerHTML="";
+            obavestenja.appendChild(trenutniKupac);
+            const trenutnaCena=document.createElement("label");
+            obavestenja.appendChild(trenutnaCena);
+            deozalicitaciju.appendChild(obavestenja);
+            const sub$=new Subject();
+            ev.value=dugmelic.value;
+            const obs1=fromEvent(dugmelic,'click').pipe(
+                map(ev=>ev.target.value),
+                switchMap(ev=>fromPromise(
+                     fetch("http://localhost:3000/artikli/"+ev)
+                        .then(response=>response.json())
+                    )),
+                filter(f=>f.cena<parseInt(unos.value)),
+                switchMap(ev=>fromPromise(
+                    fetch("http://localhost:3000/korisnici")
+                       .then(response=>response.json())
+                )),
+                concatMap(ev=>ev),
+                filter(ev=>encodeURIComponent(window.location.href).indexOf(ev.korisnickoIme)!=-1),
+                filter(ev=>ev.prijavljen===true)
+            ).subscribe(x=>{fromPromise(fetch("http://localhost:3000/artikli/"+dugmelic.value)
+            .then(resolve=>resolve.json())).subscribe(a=>{AukcijaService.azuriranjeCeneIKupca(a.id,a.naziv,a.opis,unos.value,x.ime);alert("Licitacija uspesna. Trenutna cena "+unos.value);})});
+            fromEvent(nazad,'click').subscribe(ev=>{sub$.next(),divpredmeta.hidden=false,formazalicitaciju.hidden=true,obs1.unsubscribe()});
+            setTimeout(()=>{
+                obs1.unsubscribe();
+            },20000);
+            const time=timer(20000).pipe(
+                takeUntil(sub$)
+            )
+            time.subscribe(ev=>alert("Kraj Licitacije!"));
+            const inter=interval(500).pipe(
+                takeUntil(sub$)
+            )
+            inter.subscribe(x=>{fromPromise(fetch("http://localhost:3000/artikli/"+id).then(resolve=>resolve.json())).subscribe(a=>{trenutnaCena.innerHTML="Trenutna cena:"+a.cena,trenutniKupac.innerHTML="Kupac:"+a.kupac;})});
         }
-        
-        document.getElementById("registracija").onclick=(ev)=>{
-            const regModal=document.getElementById("regModal");
-            const inpIme=regModal.querySelector("input[name='ime']").value;
-            const inpPrezime=regModal.querySelector("input[name='prezime']").value;
-            const inpBrojLicneKarte=regModal.querySelector("input[name='brojlicnekarte']").value;
-            const inpKorisnickoIme=regModal.querySelector("input[name='korisnickoimeregistracija']").value;
-            const inpLozinka=regModal.querySelector("input[name='lozinkaregistracija']").value;
-            const k=new Korisnik(inpIme,inpPrezime,inpBrojLicneKarte,inpKorisnickoIme,inpLozinka);
-            console.log(k);
-            this.dodajKorisnika(k);
-            AukcijaService.post_request(k);
-        }
-        /*document.getElementById("prijavljivanje").onclick=(ev)=>{
-            AukcijaService.vratiKorisnika().then(value=>{
-            this.dodajKorisnika(value);
-            this.listaKorisnika.forEach(k=>{
-            const loginModal=document.getElementById("loginModal");
-            const inpKorisnickoIme=loginModal.querySelector("input[name='korisnickoime']").value;
-            const inpLozinka=loginModal.querySelector("input[name='lozinka']").value;
-            if(k.korisnickoIme===inpKorisnickoIme && k.lozinka===inpLozinka)
-            {
-                k.prijavljen=true;console.log(k);
-            }
-            })
-        });*/
+        fromEvent(dugme,'click').subscribe(ob);
     }
-        
-    }
+}
+
