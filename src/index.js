@@ -63,5 +63,22 @@ fromEvent(document.querySelector("input[name='korisnickoime']"),'input').pipe(
   concatMap(ev=>ev)
 ).subscribe(x=>(x.korisnickoIme===loginModal.querySelector("input[name='korisnickoime']").value)?document.querySelector("input[name='korisnickoime']").classList="form-control validate alert-success":console.log(""));
 /************Kraj provere input polja****************/ 
-
-
+/*************Kontakt forma***************/
+const kontakt=document.getElementById("sekcija_kontakt");
+const selekt=document.querySelector("select");
+fromEvent(document.getElementById("posalji"),'click').pipe(
+  filter(ev=>document.getElementById("ziroracun").value!=""),
+  filter(ev=>document.getElementById("adresaisporuke").value!=""),
+  switchMap(ev=>fromPromise(
+    fetch("http://localhost:3000/korisnici")
+       .then(response=>response.json())
+   )),
+  concatMap(ev=>ev),
+  filter(ev=>ev.ime===document.getElementById("ime").value),
+  filter(ev=>ev.prezime===document.getElementById("prezime").value),
+  filter(ev=>ev.brojLicneKarte===document.getElementById("brojlicnekarte").value),
+  filter(ev=>parseInt(ev.predmet)==document.querySelector("select").options[selekt.selectedIndex].value)
+).subscribe(ev=>{AukcijaService.dodavanjePoslatihPredmeta(document.getElementById("ime").value,document.getElementById("prezime").value,
+document.getElementById("brojlicnekarte").value,document.getElementById("ziroracun").value,document.getElementById("adresaisporuke").value,
+selekt.options[selekt.selectedIndex].innerHTML),alert("Uspesno ste narucili izlicitirani predmet!")});
+/************Kraj kontakt forme**********/
