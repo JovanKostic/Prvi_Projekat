@@ -4,5 +4,6 @@ export class Artikal{
         this.naziv=naziv;
         this.opis=opis;
         this.cena=0;
+        this.kupac="";
     }
 }
