@@ -9,7 +9,6 @@ export class Aukcija{
     constructor(){
         this.listaArtikala=null;
         this.container=null;
-        this.trenutnoVreme=null;
     }
     dodajArtikal(a){this.listaArtikala=a;}
     crtajArtikle(host){
@@ -36,6 +35,11 @@ export class Aukcija{
         dugme.value=a.id;
         dugme.classList="btn btn-default btn-secondary btn-sm";
         divzaartikal.appendChild(dugme);
+        const selekt=document.getElementById("selekt");
+        const opcija=document.createElement("option");
+        opcija.innerHTML=a.naziv;
+        opcija.value=a.id;
+        selekt.appendChild(opcija);
         const ob=(ev)=>{
             const divpredmeta=document.getElementById("predmeti");
             divpredmeta.className="divpredmeta";
@@ -63,7 +67,6 @@ export class Aukcija{
             const deozalicitaciju=document.createElement("div");
             deozalicitaciju.className="deozalicitaciju";
             formazalicitaciju.appendChild(deozalicitaciju);
-            sekcijaaukcija.appendChild(obavestenja);
             const unos=document.createElement("input");
             unos.type="number";
             deozalicitaciju.appendChild(unos);
@@ -73,18 +76,15 @@ export class Aukcija{
             dugmelic.value=predmet.id;
             dugmelic.innerHTML="Licitiraj";
             deozalicitaciju.appendChild(dugmelic);
-            const dugmeodustani=document.createElement("button");
-            dugmeodustani.className="dugmeodustani";
-            dugmeodustani.innerHTML="Odustani od licitacije";
-            deozalicitaciju.appendChild(dugmeodustani);
-            const labelaIme=document.createElement("label");
-            labelaIme.innerHTML="";
-            obavestenja.appendChild(labelaIme);
-            const labelaCena=document.createElement("label");
-            labelaCena.innerHTML="";
+            const nazad=document.createElement("button");
+            nazad.className="Nazad";
+            nazad.innerHTML="Nazad na predmete";
+            deozalicitaciju.appendChild(nazad);
+            const trenutniKupac=document.createElement("label");
+            trenutniKupac.innerHTML="";
+            obavestenja.appendChild(trenutniKupac);
             const trenutnaCena=document.createElement("label");
             obavestenja.appendChild(trenutnaCena);
-            obavestenja.appendChild(labelaCena);
             deozalicitaciju.appendChild(obavestenja);
             const sub$=new Subject();
             ev.value=dugmelic.value;
@@ -103,23 +103,21 @@ export class Aukcija{
                 filter(ev=>encodeURIComponent(window.location.href).indexOf(ev.korisnickoIme)!=-1),
                 filter(ev=>ev.prijavljen===true)
             ).subscribe(x=>{fromPromise(fetch("http://localhost:3000/artikli/"+dugmelic.value)
-            .then(resolve=>resolve.json())).subscribe(a=>AukcijaService.azuriranjeCene(a.id,a.naziv,a.opis,unos.value)),
-            alert("Licitacija uspesna. Trenutna cena "+unos.value)},x=>{alert("Neuspesna licitacija. Trenutna vrednost predmeta ")});
-            fromEvent(dugmeodustani,'click').subscribe(ev=>{sub$.next(),divpredmeta.hidden=false,formazalicitaciju.hidden=true,obs1.unsubscribe()});
+            .then(resolve=>resolve.json())).subscribe(a=>{AukcijaService.azuriranjeCeneIKupca(a.id,a.naziv,a.opis,unos.value,x.ime);alert("Licitacija uspesna. Trenutna cena "+unos.value);})});
+            fromEvent(nazad,'click').subscribe(ev=>{sub$.next(),divpredmeta.hidden=false,formazalicitaciju.hidden=true,obs1.unsubscribe()});
             setTimeout(()=>{
                 obs1.unsubscribe();
-            },200000);
-            const time=timer(200000).pipe(
+            },20000);
+            const time=timer(20000).pipe(
                 takeUntil(sub$)
             )
-            time.subscribe(ev=>alert("Kraj Licitacije"));
-            const inter=interval(2000).pipe(
+            time.subscribe(ev=>alert("Kraj Licitacije!"));
+            const inter=interval(500).pipe(
                 takeUntil(sub$)
             )
-            inter.subscribe(x=>{fromPromise(fetch("http://localhost:3000/artikli/"+id).then(resolve=>resolve.json())).subscribe(a=>trenutnaCena.innerHTML="Trenutna cena:     "+a.cena,console.log(a.cena))});
+            inter.subscribe(x=>{fromPromise(fetch("http://localhost:3000/artikli/"+id).then(resolve=>resolve.json())).subscribe(a=>{trenutnaCena.innerHTML="Trenutna cena:"+a.cena,trenutniKupac.innerHTML="Kupac:"+a.kupac;})});
         }
         fromEvent(dugme,'click').subscribe(ob);
     }
 }
-
 
