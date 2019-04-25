@@ -110,7 +110,7 @@
         </div>
         <!--Kraj pocetne strane-->
         <!--Pocetak predmet dela-->
-        <div id="sekcija_predmet">
+        <div id="sekcija_predmet" class="s_p">
             <div id="predmeti" style="overflow-y:hidden;overflow-x:scroll;margin-left: 10%;margin-right: 10%;"></div>
         </div>
         <!--Kraj predmet dela-->
@@ -135,34 +135,31 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Ime:</label>
-                        <input type="text" class="form-control">
+                        <input type="text" id="ime" class="form-control">
                     </div>
                     <div class="form-group">
                         <label>Prezime:</label>
-                        <input type="text" class="form-control">
+                        <input type="text" id="prezime" class="form-control">
                     </div>
                     <div class="form-group">
                         <label>Broj licne karte:</label>
-                        <input type="text" class="form-control">
+                        <input type="text" id="brojlicnekarte" class="form-control">
                     </div>
                     <div class="form-group">
                         <label>Ziro-racun:</label>
-                        <input type="text" class="form-control">
+                        <input type="text" id="ziroracun" class="form-control">
                     </div>
                     <div class="form-group">
                         <label>Adresa isporuke:</label>
-                        <input type="text" class="form-control">
+                        <input type="text" id="adresaisporuke" class="form-control">
                     </div>
                     <div class="form-group">
-                        <label>Nacin placanja:</label>
-                            <ul>
-                                <input name="nacinPlacanja" type="radio">Ziro racun<br>
-                                <input name="nacinPlacanja" type="radio">Pouzecem<br>
-                                <input name="nacinPlacanja" type="radio">
-                            </ul>
+                        <label for="sel1">Predmet:</label>
+                        <select class="form-control" id="selekt">
+                        </select>
                     </div>
                     <div class="form-group">
-                        <button id="posalji" class="btn btn-success">Posalji</button>
+                        <button id="posalji" class="btn btn-default btn-warning">Posalji</button>
                     </div>
                 </div>
             </div>
