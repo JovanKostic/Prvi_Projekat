@@ -7,11 +7,6 @@ export class Korisnik{
         this.korisnickoIme=korisnickoIme;
         this.lozinka=Lozinka;
         this.prijavljen=false;
-        this.artikal=null;
+        this.predmet=null;
     }
-    dodajArtikal(a){
-        this.artikal=new Artikal(a.naziv,a.opis);
-        console.log(this.artikal)
-    }
-    prikaziArtikal(){console.log(this.artikal);}
 }
