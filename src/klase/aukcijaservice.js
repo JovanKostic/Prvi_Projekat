@@ -1,12 +1,12 @@
 export class AukcijaService{
-    /*static get(){
+    static get(){
         return fetch("http://localhost:3000/artikli")
         .then(response=>response.json());
     }
     static getKorisnik(){
         return fetch("http://localhost:3000/korisnici")
         .then(response=>response.json());
-    }*/
+    }
     static dobavljanjeArtikalaIzBaze(){
         const axios = require('axios');
         return axios.get('http://localhost:3000/artikli');
