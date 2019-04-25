@@ -64,7 +64,7 @@
       "brojLicneKarte": "6787890",
       "korisnickoIme": "nikola",
       "lozinka": "nikola",
-      "prijavljen": true,
+      "prijavljen": false,
       "predmet": 1,
       "id": 1
     },
